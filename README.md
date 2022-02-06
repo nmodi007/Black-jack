@@ -1,12 +1,13 @@
 # Black-jack
-Simulation of playing thousands or millions of hands of blackjack at a casino to find out the expected value of dealer wins and other stats.
+Have you ever wondered what would happen in the long run if you play Blackjack at a casino "by the Blackjack chart/table"?
 
-Have you ever wondered what would happen in the long run if you played Blackjack at a casino, "by the Blackjack chart/table"?
+In this project I simulate playing thousands or millions of hands (one of the inputs into the program) of blackjack at a casino to find out the expected value of dealer wins and other stats. The other input is the number of players at at the table. 
 
 Blackjack chart tells the player exactly what to do for every possible scenario a player could have. In this project this player decision is placed into two charts.
 The hit_stay_or_double.csv chart and the splitting.csv chart.
-The hit_stay_or_double chart takes two inputs, the player total (soft and hard total) and the dealer up-card, and returns either hit, stay, or double.  
-If the player is dealt a pair as the original hand, then the splitting chart is used (along with the dealer up-card) to decide split or stay.
+The hit_stay_or_double chart takes two inputs, the player total (soft and hard total) and the dealer up-card, and returns either hit, stay, or double.
+
+If the player is dealt a pair as the original hand, then the splitting chart is used (along with the dealer up-card) to decide split or continue playing.
 
 In this version of Blackjack the dealer plays as follows:
   17 or above, the dealer must stand.
@@ -28,4 +29,5 @@ Each player bets $10 for each hand.
 If a player gets a natural Blackjack, then the dealer pays 1.5 times the bet, so $15.
 
 My finds are contrary to what I hear about some only 0.5% house-advantage if you play by the chart. 
-  
+
+Six decks are used in the tray. cards are shuffled and then the deck is cut. 
