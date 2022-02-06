@@ -3,7 +3,7 @@ Simulation of playing thousands or millions of hands of blackjack at a casino to
 
 Have you ever wondered what would happen in the long run if you played Blackjack at a casino, "by the Blackjack chart/table"?
 
-Blackjack chart tells the player exactly what to do for every possible senario a player could have. In this project this player decision is placed into two charts.
+Blackjack chart tells the player exactly what to do for every possible scenario a player could have. In this project this player decision is placed into two charts.
 The hit_stay_or_double.csv chart and the splitting.csv chart.
 The hit_stay_or_double chart takes two inputs, the player total (soft and hard total) and the dealer up-card, and returns either hit, stay, or double.  
 If the player is dealt a pair as the original hand, then the splitting chart is used (along with the dealer up-card) to decide split or stay.
@@ -20,13 +20,12 @@ After running the simulation a dealers-stats-pie-chart is created. I am getting 
 - dealer loses about 43% of the time.
 - dealer pushes about 8% of the time.
 
-players_balance.png is created at the end as well. This shows how each player's balance changes thruout. How the winning/losing happens over time.
+players_balance.png is created at the end as well. This shows how each player's balance changes thru-out. How the winning/losing happens over time. I was thinking that if the deck favors the player or if the deck favors the players then I would see all the players losing/winning together. I don’t see this trend.
 
-inputs in this simulation. number of rounds, and number of players at the table.
+inputs in this simulation. number of rounds and number of players at the table.
 
 Each player bets $10 for each hand.
 If a player gets a natural Blackjack, then the dealer pays 1.5 times the bet, so $15.
 
 My finds are contrary to what I hear about some only 0.5% house-advantage if you play by the chart. 
-
   
