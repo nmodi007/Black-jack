@@ -129,7 +129,5 @@ dmypy.json
 .pyre/
 
 # results from simulation
-dealer_stats.png
-players_balance.png
 stats
 .vscode
