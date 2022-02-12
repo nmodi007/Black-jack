@@ -64,7 +64,7 @@ def simulate_blackjack(rounds, num_players):
 
     plot_dealer_stats(dealer_wins, dealer_losses, dealer_pushes, rounds)
 
-    # print_records_of_players_to_file(players)
+    print_records_of_players_to_file(players)
 
 
 def plot_players_balance(players, rounds):
@@ -98,7 +98,8 @@ def plot_dealer_stats(dealer_wins, dealer_losses, dealer_pushes, rounds):
 def print_records_of_players_to_file(players):
     for num, player in enumerate(players):
         file_name = 'player' + str(num)
-        with open(file_name, mode='wt', encoding='utf-8') as file:
+        file_path = os.path.join('./player_records', file_name)
+        with open(file_path, mode='wt', encoding='utf-8') as file:
             for record in player.records:
                 file.write(format(record))
 

@@ -15,8 +15,24 @@ From the terminal:
   ![](./images/dealer_stats.png)
   - ### players_balance.png 
   ![](./images/players_balance.png)
-  - stats --> each player's winning %, losing %, and pushes %. The last item in this file is the dealer's stats.
-  - player[#] --> results of every signle hand played by that player.
+  - ### stats --> each player's winning %, losing %, and pushes %. The last item in this file is the dealer's stats.
+    - wins: 468 winning %: 45.35%
+    - losses: 481 losing %: 46.61%
+    - pushes: 83 push %: 8.04%
+    - total hands: 1032
+    - final balance: 100.0
+  - ### results of every signle hand played by each player are in the player_records folder.
+      - player hand: 2 K 9 21
+      - dealer hand: 5 K 10 25
+      - Win
+      -- -------------------
+      - player hand: 10 K 20
+      - dealer hand: J 10 20
+      - Push
+      - -------------------
+      - player hand: 3 A J 2 7 23
+      - dealer hand: 10 Q 20
+      - Busted
 
 ## How the dealer plays
   - 17 or above, the dealer must stand.
@@ -33,12 +49,12 @@ From the terminal:
 - Only players can split. Example, players is dealt a pair of 8s. Player splits. Then the player is dealt another 8. He will split that pair again. Now a player has 3 hands and the game continues.
 
 ## Results
-After running the simulation a dealers-stats-pie-chart is created. I am getting the following results:
+After running a simulation of one million rounds I am getting the following results:
 - dealer wins about 48% of the time.
 - dealer loses about 43% of the time.
 - dealer pushes about 8% of the time.
 
-- players_balance.png is created at the end as well. This shows how each player's balance changes thru-out. How the winning/losing happens over time. I was thinking that if the deck favors the dealer or if the deck favors the players then I would see all the players losing/winning together. I don’t see this trend.
+- I was thinking that if the deck favors the dealer or if the deck favors the players then I would see all the players losing/winning together. I don’t see this trend in the players_balance graph.
 
 ## Other info
 - Each player bets $10 for each hand.
