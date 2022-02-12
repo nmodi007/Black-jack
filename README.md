@@ -11,10 +11,12 @@ From the terminal:
   - players: number of players at the table.
 
  ## Outputs:
-  - dealer_stats.png --> a pie chart that shows dealer's      winning %, losing %, and pushes %.
-  - players_balance.png --> line-graph that shows how each player's balance changes over time/hands.
+  - ### dealer_stats.png
+  ![](./images/dealer_stats.png)
+  - ### players_balance.png 
+  ![](./images/players_balance.png)
   - stats --> each player's winning %, losing %, and pushes %. The last item in this file is the dealer's stats.
-  player[#] --> results of every signle hand played by that player. # is a digit (i.e player2)
+  - player[#] --> results of every signle hand played by that player.
 
 ## How the dealer plays
   - 17 or above, the dealer must stand.
@@ -22,13 +24,11 @@ From the terminal:
   - If dealer has an ace and counting it as 11 puts the dealer at or above 17 then the dealer must stand.
   
 ## How the players play
-  - players use two charts: The hit_stay_or_double.csv chart and the splitting.csv chart.
+  - players use two charts: The hit_stay_or_double.csv chart and the splitting.csv chart. These charts tell the players exactly what to do for every possible scenario.
 
   - The hit_stay_or_double chart takes two inputs: the player total and the dealer face-up-card, and returns either hit, stay, or double.
 
   - the splitting chart is used when the player is dealt a pair as the original hand. The pair and the dealer face-up-card is the input and output is either split or continue playing.
-  
-- Blackjack charts tell the players exactly what to do for every possible scenario.
 
 - Only players can split. Example, players is dealt a pair of 8s. Player splits. Then the player is dealt another 8. He will split that pair again. Now a player has 3 hands and the game continues.
 
