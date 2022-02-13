@@ -15,13 +15,15 @@ From the terminal:
   ![](./images/dealer_stats.png)
   - ### players_balance.png 
   ![](./images/players_balance.png)
-  - ### stats --> each player's winning %, losing %, and pushes %. The last item in this file is the dealer's stats.
-    - wins: 468 winning %: 45.35%
-    - losses: 481 losing %: 46.61%
-    - pushes: 83 push %: 8.04%
-    - total hands: 1032
-    - final balance: 100.0
-  - ### results of every signle hand played by each player are in the player_records folder.
+
+  - ### stats file: Each player's stats. The last item in this file is the dealer's stats.
+    - wins: 456 &emsp;&emsp;&emsp;&ensp; winning %: 44.40%
+    - losses: 491 &emsp;&emsp;&emsp; losing %: 47.81%
+    - pushes: 80 &emsp;&emsp;&emsp; push %: 7.79%
+    - total hands: 1027
+    - final balance: -65.0
+
+  - ### player_records folder: results of every single hand played by each player. Example:
       - player hand: 2 K 9 21
       - dealer hand: 5 K 10 25
       - Win
@@ -46,13 +48,14 @@ From the terminal:
 
   - the splitting chart is used when the player is dealt a pair as the original hand. The pair and the dealer face-up-card is the input and output is either split or continue playing.
 
-- Only players can split. Example, players is dealt a pair of 8s. Player splits. Then the player is dealt another 8. He will split that pair again. Now a player has 3 hands and the game continues.
+  - Example, player is dealt a pair of 8s. Player splits. Then the player is dealt another 8. He will split that pair again. Now a player has 3 hands and the game continues.
 
 ## Results
-After running a simulation of one million rounds I am getting the following results:
-- dealer wins about 48% of the time.
-- dealer loses about 43% of the time.
-- dealer pushes about 8% of the time.
+- After running a simulation of one million rounds and 6 players at the table, I am getting the following results:
+
+  - dealer wins about 48% of the time.
+  - dealer loses about 43% of the time.
+  - dealer pushes about 8% of the time.
 
 - I was thinking that if the deck favors the dealer or if the deck favors the players then I would see all the players losing/winning together. I don’t see this trend in the players_balance graph.
 

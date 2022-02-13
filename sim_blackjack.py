@@ -122,12 +122,14 @@ def calculate_stats(player):
 def print_stats_to_file(wins, losses, pushes, balance, file_name):
     total_hands = wins + losses + pushes
     with open(file_name, mode='a', encoding='utf-8') as file:
-        file.write(f'wins: {wins} winning %: {wins/total_hands:.2%}\n')
-        file.write(f'losses: {losses} losing %: {losses/total_hands:.2%}\n')
-        file.write(f'pushes: {pushes} push %: {pushes/total_hands:.2%}\n')
-        file.write(f'--------------------------\n')
+        file.write(f'wins: {wins:<6}\t\t\twinning %: {wins/total_hands:.2%}\n')
+        file.write(
+            f'losses: {losses:<6}\t\tlosing %: {losses/total_hands:.2%}\n')
+        file.write(
+            f'pushes: {pushes:<6}\t\tpush %: {pushes/total_hands:.2%}\n')
         file.write(f'total hands: {total_hands}\n')
-        file.write(f'final balance: {balance}\n\n')
+        file.write(f'final balance: {balance}\n')
+        file.write(f'----------------------------------------\n\n')
 
 
 def main(rounds, num_players):
