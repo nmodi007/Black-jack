@@ -8,6 +8,7 @@ Usage: python3 black_jack_sim.py <rounds> <num_players>
 """
 from glob import glob
 import os
+from sre_constants import OP_IGNORE
 from dealer import Dealer
 from player import Player, Status
 from tray import Tray
@@ -23,10 +24,10 @@ def simulate_blackjack(rounds, num_players):
     dealer = Dealer()
     players = [Player() for i in range(num_players)]
 
-    for round in range(rounds):
+    for _ in range(rounds):
         dealer.deal(players, tray)
         dealer.play(players, tray)
-        if not len(tray):
+        if not tray:
             tray = Tray(decks=6)
 
     # find all the player[0-9] files and delete them
@@ -51,8 +52,6 @@ def simulate_blackjack(rounds, num_players):
         total_losses_of_all_players += losses
         total_pushes_of_all_players += pushes
 
-    plot_players_balance(players, rounds)
-
     dealer_wins = total_losses_of_all_players
     dealer_losses = total_wins_of_all_players
     dealer_pushes = total_pushes_of_all_players
@@ -64,7 +63,9 @@ def simulate_blackjack(rounds, num_players):
 
     plot_dealer_stats(dealer_wins, dealer_losses, dealer_pushes, rounds)
 
+    write_player_balances(players)
     print_records_of_players_to_file(players)
+    plot_players_balance(players, rounds)
 
 
 def plot_players_balance(players, rounds):
@@ -73,8 +74,24 @@ def plot_players_balance(players, rounds):
     plt.title(f'After playing {rounds} rounds')
     for player in players:
         ax1.plot(player.balance)
-    plt.savefig('\images\players_balance.png')
-    # plt.show()
+    file_path = os.path.join('./images', 'players_balance.png')
+    plt.legend(['p0' 'p1', 'p2', 'p3', 'p4', 'p5'])
+    plt.savefig(file_path)
+    plt.show()
+
+    for i, player in enumerate(players):
+        plt.plot(player.balance)
+        file_name = 'player' + str(i) + '_balance.png'
+        file_path = os.path.join('./player_records', file_name)
+        plt.savefig(file_path)
+
+
+def write_player_balances(players):
+    for i, player in enumerate(players):
+        file_name = 'player' + str(i) + '_balance.txt'
+        file_name = os.path.join('./player_records', file_name)
+        with open(file_name, mode='wt', encoding='utf-8') as f:
+            f.writelines('\n'.join(str(x) for x in player.balance))
 
 
 def plot_dealer_stats(dealer_wins, dealer_losses, dealer_pushes, rounds):
@@ -91,7 +108,8 @@ def plot_dealer_stats(dealer_wins, dealer_losses, dealer_pushes, rounds):
     ax2.axis('equal')
     fig2.suptitle(f'Dealer stats after playing {rounds} rounds')
 
-    plt.savefig('.\images\dealer_stats.png')
+    file_path = os.path.join('./images', 'dealer_stats.png')
+    plt.savefig(file_path)
     # plt.show()
 
 
@@ -100,7 +118,7 @@ def print_records_of_players_to_file(players):
         file_name = 'player' + str(num)
         file_path = os.path.join('./player_records', file_name)
         with open(file_path, mode='wt', encoding='utf-8') as file:
-            for record in player.records:
+            for i, record in enumerate(player.records):
                 file.write(format(record))
 
 
@@ -129,7 +147,7 @@ def print_stats_to_file(wins, losses, pushes, balance, file_name):
             f'pushes: {pushes:<6}\t\tpush %: {pushes/total_hands:.2%}\n')
         file.write(f'total hands: {total_hands}\n')
         file.write(f'final balance: {balance}\n')
-        file.write(f'----------------------------------------\n\n')
+        file.write('----------------------------------------\n\n')
 
 
 def main(rounds, num_players):
